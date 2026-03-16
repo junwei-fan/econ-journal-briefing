@@ -13,8 +13,8 @@ on:
   #   "0 14 * * 1"      →  Every Monday at 14:00 UTC = 9am New York
   #   "0 7 1 * *"       →  1st of every month at 07:00 UTC     (monthly)
   #   "0 7 1,15 * *"    →  1st and 15th of every month         (twice monthly)
-  schedule:
-    - cron: "0 7 * * 1"   # ← CHANGE THIS LINE to set your schedule
+  # schedule:
+  #   - cron: "0 7 * * 1"   # ← CHANGE THIS LINE to set your schedule
 
   # ── Manual trigger ────────────────────────────────────────────────────────
   # Run at any time from the Actions tab (useful for testing)
