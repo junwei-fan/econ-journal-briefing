@@ -78,7 +78,33 @@ Add these two secrets exactly as shown:
 
 ---
 
-### Step 4 — Test it
+### Step 4 — Set your schedule
+
+Open `.github/workflows/briefing.yml` (click the file, then the pencil ✏️ icon to edit).
+
+Find these lines near the top:
+
+```yaml
+  # schedule:
+  #   - cron: "0 7 * * 1"
+```
+
+Uncomment them by removing the `#` at the start of both lines, then replace `"0 7 * * 1"` with your preferred schedule:
+
+| Cron expression | Meaning |
+|----------------|---------|
+| `"0 7 * * 1"` | Every **Monday** at 07:00 UTC |
+| `"0 1 * * 1"` | Every **Monday** at 01:00 UTC = **9am Beijing / Hong Kong** |
+| `"0 9 * * 1"` | Every **Monday** at 09:00 UTC = **9am London** |
+| `"0 14 * * 1"` | Every **Monday** at 14:00 UTC = **9am New York** |
+| `"0 7 1 * *"` | **1st of every month** at 07:00 UTC |
+| `"0 7 1,15 * *"` | **1st and 15th** of every month |
+
+Commit the change directly to main.
+
+---
+
+### Step 5 — Test it
 
 1. In your repo, click the **Actions** tab
 2. Click **Economics Journal Briefing** in the left sidebar
