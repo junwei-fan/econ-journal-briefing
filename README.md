@@ -121,17 +121,27 @@ Commit the change. Done.
 
 ### Change the schedule
 
-Open `.github/workflows/briefing.yml` and find this line:
+Open `.github/workflows/briefing.yml` (click the file, then the pencil ✏️ icon to edit).
+
+Find these lines near the top:
 
 ```yaml
-    - cron: "0 7 * * 1"   # ← CHANGE THIS LINE to set your schedule
+  # schedule:
+  #   - cron: "0 7 * * 1"
 ```
 
-Replace the cron expression with your preferred schedule:
+**Step 1 — Uncomment them** by removing the `#` at the start of both lines:
+
+```yaml
+  schedule:
+    - cron: "0 7 * * 1"
+```
+
+**Step 2 — Replace `"0 7 * * 1"`** with your preferred schedule:
 
 | Cron expression | Meaning |
 |----------------|---------|
-| `"0 7 * * 1"` | Every **Monday** at 07:00 UTC *(default)* |
+| `"0 7 * * 1"` | Every **Monday** at 07:00 UTC |
 | `"0 1 * * 1"` | Every **Monday** at 01:00 UTC = **9am Beijing / Hong Kong** |
 | `"0 9 * * 1"` | Every **Monday** at 09:00 UTC = **9am London** |
 | `"0 14 * * 1"` | Every **Monday** at 14:00 UTC = **9am New York** |
@@ -140,7 +150,9 @@ Replace the cron expression with your preferred schedule:
 
 > Use **[crontab.guru](https://crontab.guru)** to build any custom schedule.
 
-If switching to **monthly**, also open `briefing.py` and change:
+**Step 3 — Commit** the change directly to main.
+
+If switching to **monthly**, also open `briefing.py` and change line 42:
 ```python
 DAYS_LOOKBACK = int(os.getenv("DAYS_LOOKBACK", "8"))
 ```
